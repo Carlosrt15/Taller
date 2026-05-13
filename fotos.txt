@@ -1,3 +1,6 @@
 hola esto es en la rama fotos
+
 hola conflicto
-xddsds
+ (resuelto)xddsds
+
+
