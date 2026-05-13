@@ -43,8 +43,8 @@ Comandos para administrar las diferentes líneas de desarrollo de un proyecto.
 
 ---
 
-## 5. Fusión de Ramas e Integración de Código
-Combina el historial de desarrollo de una rama secundaria dentro de una rama objetivo.
+## 5. Fusión de Ramas e Integración de Código (`git merge`)
+Combina el historial de desarrollo de una rama secundaria dentro de una rama objetivo. Identifica el ancestro común de ambas ramas, junta los cambios de forma automática si ocurren en líneas distintas y genera un nuevo commit de fusión que unifica ambas líneas de desarrollo.
 
 > 🌐 **Nota operativa:** Los comandos de fusión deben ejecutarse siempre posicionándose primero en la rama receptora de los cambios.
 
@@ -62,6 +62,7 @@ Si el proceso de fusión se detiene por modificaciones concurrentes en las misma
    git add .
    git commit -m "Resolución de conflictos de fusión"
    ```
+* `git merge --abort` -> Cancela por completo el proceso de fusión y devuelve el proyecto a su estado original anterior al conflicto.
 
 ---
 
@@ -69,7 +70,9 @@ Si el proceso de fusión se detiene por modificaciones concurrentes en las misma
 Envío y descarga de datos entre el entorno local y el servidor.
 * `git push -u origin <nombre_rama>` -> Sube la rama local al servidor remoto por primera vez y establece la relación de seguimiento (upstream).
 * `git push` -> Sube los commits locales de la rama activa (válido tras configurar el upstream inicial).
-* `git pull origin <nombre_rama>` -> Descarga e incorpora los cambios del repositorio remoto directamente en la rama actual.
+* `git pull origin <nombre_rama>` -> Descarga e incorpora los cambios del repositorio remoto directamente en la rama actual (ejecuta un `fetch` seguido de un `merge` automático).
+* `git fetch origin` -> Descarga la información, commits y ramas de GitHub al entorno local **sin modificar tus archivos actuales ni tu código**. Permite inspeccionar cambios remotos antes de integrarlos.
+* `git diff main origin/main` -> Compara las diferencias entre la rama local `main` y la rama remota descargada mediante `fetch`.
 * `git clone <URL_DEL_REPOSITORIO>` -> Descarga una copia completa de un repositorio remoto en un nuevo directorio local.
 
 ---
